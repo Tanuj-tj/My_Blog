@@ -6,6 +6,6 @@ urlpatterns = [
     # /blog
     path('',views.blogHome,name='blogHome'),
     # /blog/<Any string variable>
-     path('<str:slug>',views.blogPost,name='blogPost'),
+    path('<str:slug>',views.blogPost,name='blogPost'),
 
 ]
