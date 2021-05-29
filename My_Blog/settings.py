@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,10 +75,26 @@ WSGI_APPLICATION = 'My_Blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+'''
+# SQLite 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+'''
+
+# MongoDB
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'MyBlog_DB',
+        # 'CLIENT': {
+        #    'host': 'your-db-host',
+        # }
     }
 }
 
