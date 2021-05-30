@@ -2,18 +2,20 @@
 
 {% block title %} Contact {% endblock title %}
 
+{% block contactactive %} active {% endblock contactactive %}
+
 {% block body %}
 
 <!-- Tailwin CSS -->
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 <section class="text-gray-600 body-font relative">
-  <div class="container px-5 py-20 mx-auto">
+  <div class="container px-5 py-9 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact me!</h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Feel free to reach out with any kind of issue in contents or any doubts related to any described topic .</p>
     </div>
-    <form method = "POST" action="/contact">
+    <form method = "POST" action="/contact"> {% csrf_token %}
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
         <div class="p-2 w-1/2">
@@ -35,7 +37,7 @@
           </div>
         </div>
         <div class="p-2 w-full">
-          <button class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Button</button>
+          <button type="submit" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Button</button>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
        
@@ -65,7 +67,9 @@
         </div>
       </div>
     </div>
+
     </form>
+
   </div>
 </section>
 
