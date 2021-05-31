@@ -17,4 +17,9 @@
 * Integrating Django Message Framework
 * Using bootstrap displaceable messages
 
+#### 31/05/2021
+* Created BlogPost Page
+* Working on search on navbar
+* Using Django __icontains
+
 
