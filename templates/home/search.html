@@ -10,6 +10,7 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 <div class="container">
+
 <!-- Loading 
  <div class="d-flex align-items-center">
   <strong>Loading...</strong>
@@ -20,6 +21,25 @@
   <div class="container px-5 py-24 mx-auto">
     <div class="-my-8 divide-y-2 divide-gray-100">
      <h1>Search results:</h1><br>
+
+     {% if allPosts|length < 1 %}
+        <div class="alert alert-secondary d-flex align-items-center" role="alert">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          <div>
+              Your search - <b>{{query}}</b> did not match any documents <br><br>Suggestions: 
+              <ul class="list-disc ml-8">
+                  <li>Make sure that all words are spelled correctly</li>
+                  <li>Try differnet keywords</li>
+                  <li>Try more general keywords</li>
+                  <li>Try fewer keywords</li>
+              </ul>
+         
+         </div> 
+      </div> 
+
+     {% endif %}
      
       {% for post in allPosts %}
       <div class="py-8 flex flex-wrap md:flex-nowrap">
