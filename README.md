@@ -26,5 +26,10 @@
 * Added the functionality of no search found
 * Added Login and SignUp forms
 
+#### 03/06/2021
+* Used django inbuit User model (from django.contrib.auth.models import User)
+* Created a signup handler in views.py
+* Used django built in authontication (from django.contrib.auth import authenticate , login,logout)
+
 
 

@@ -11,4 +11,10 @@ urlpatterns = [
     path('contact',views.contact,name='contact'),
      # /search
     path('search',views.search,name='search'),
+     # /signup
+    path('signup',views.handleSignup, name='handleSignup'),
+     # /login
+    path('login',views.handleLogin, name='handleLogin'),
+     # /logout
+    path('logout',views.handleLogout, name='handleLogout'),
 ]

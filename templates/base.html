@@ -87,45 +87,45 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="signupModalTitle">SignUp</h5>
+          <h5 class="modal-title" id="signupModalTitle">SignUp Here</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
-            
+          <form action = '/signup' method='post'> 
+            {% csrf_token %}
              <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control" id="username" name = "username" placeholder="Choose a unique username">
+              <label for="username" class="form-label">Username </label>
+              <input type="text" class="form-control" id="username" name = "username" placeholder="Choose a unique username (Lowercase and Alphanumeric)" required>
             </div>
              
             <div class="mb-3">
               <label for="fname" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="fname" name = "fname" placeholder="First Name">
+              <input type="text" class="form-control" id="fname" name = "fname" placeholder="First Name" required>
             </div>
             
             <div class="mb-3">
               <label for="lname" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="lname" name = "lname" placeholder="Last Name">
+              <input type="text" class="form-control" id="lname" name = "lname" placeholder="Last Name" required>
             </div>
 
 
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email" name= "email" aria-describedby="emailHelp"  placeholder="name@example.com">
+              <input type="email" class="form-control" id="email" name= "email" aria-describedby="emailHelp"  placeholder="name@example.com" required>
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
 
             <div class="mb-3">
               <label for="pass1" class="form-label">Choose a Password</label>
-              <input type="password" class="form-control" name = "pass1" id="pass1" placeholder="Choose your password">
+              <input type="password" class="form-control" name = "pass1" id="pass1" placeholder="Choose your password" required>
             </div>
 
             <div class="mb-3">
               <label for="pass2" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" name = "pass2" id="pass2" placeholder="Enter your password again">
+              <input type="password" class="form-control" name = "pass2" id="pass2" placeholder="Enter your password again" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">SignUp</button>
 
           </form>
         </div>
@@ -138,24 +138,24 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginModalTitle">Login</h5>
+          <h5 class="modal-title" id="loginModalTitle">Login Here</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
-
+          <form action='/login' method='post'>
+            {% csrf_token %}
              <div class="mb-3">
               <label for="loginusername" class="form-label">Username</label>
-              <input type="text" class="form-control" id="loginusername" name = "loginusername" placeholder="Choose a unique username">
+              <input type="text" class="form-control" id="loginusername" name = "loginusername" placeholder="Choose a unique username" required>
             </div>
        
             <div class="mb-3">
-              <label for="pass" class="form-label">Enter your Password</label>
-              <input type="password" class="form-control" name = "pass" id="pass" placeholder="Enter your Password">
+              <label for="loginpass" class="form-label">Enter your Password</label>
+              <input type="password" class="form-control" name = "loginpass" id="loginpass" placeholder="Enter your Password" required>
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Login</button>
 
           </form>
         </div>
