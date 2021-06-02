@@ -116,6 +116,8 @@ def handleLogin(request):
             messages.error(request,"Invalid Credentials, Please Try again")
             return redirect('home')
 
+    return HttpResponse('404 - Not Found')
+
 
 def handleLogout(request):
     logout(request)
