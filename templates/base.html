@@ -57,10 +57,22 @@
         <form method="get" action="/search" class="d-flex">
           <input class="form-control me-2" name="query" id="query" type="search" placeholder="Search"
             aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit">Search</button>
-          <a href="/admin" class="btn btn-outline-primary mx-2" type="submit">Admin</a>
+          <button class="btn btn-outline-primary me-2" type="submit">Search</button>
+          <!-- <a href="/admin" class="btn btn-outline-primary mx-2" type="submit">Admin</a> -->
         </form>
-
+        
+      {% if user.is_authenticated %}
+      <ul class="navbar-nav my-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome {{ request.user }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+       </ul>
+      {% else %}
         <!-- Button trigger SignUp modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">
           SignUp
@@ -70,6 +82,7 @@
         <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#loginModal">
           Login
         </button>
+      {% endif %}
       </div>
     </div>
   </nav>

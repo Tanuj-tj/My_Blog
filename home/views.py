@@ -125,4 +125,3 @@ def handleLogout(request):
     return redirect('home')
 
 
-

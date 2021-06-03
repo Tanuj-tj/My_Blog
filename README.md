@@ -31,5 +31,8 @@
 * Created a signup handler in views.py
 * Used django built in authontication (from django.contrib.auth import authenticate , login,logout)
 
+#### 04/06/2021
+* Login and Logout functionalites
+* Change Admin panel's header , index , index_title
 
 
