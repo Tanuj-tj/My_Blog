@@ -34,5 +34,6 @@
 #### 04/06/2021
 * Login and Logout functionalites
 * Change Admin panel's header , index , index_title
+* Created a BlogComment model
 
 
