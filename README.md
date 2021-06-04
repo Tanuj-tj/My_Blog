@@ -38,3 +38,4 @@
 
 #### 05/06/2021
 * Handling BogComments 
+* Handling Ananomous User comments by user.is_authenticated

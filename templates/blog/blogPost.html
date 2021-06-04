@@ -69,6 +69,7 @@
   <form action="/blog/postComment" method="post">
     {% csrf_token %}
   
+ {% if user.is_authenticated %}
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Post Your Comment Here</label>
     <input type="text" name="comment" id="comment" class="form-control">
@@ -77,6 +78,11 @@
 
   <input type="hidden" name="postSno" value="{{post.sno}}">
 </form>
+
+{% else %}
+<p>Please login to post a comment</p>
+
+{% endif %}
 
   {% for comment in comments %}
 
