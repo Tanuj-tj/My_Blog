@@ -36,4 +36,5 @@
 * Change Admin panel's header , index , index_title
 * Created a BlogComment model
 
-
+#### 05/06/2021
+* Handling BogComments 

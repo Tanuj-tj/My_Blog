@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="container">
-<div class="row g-5 mt-4">
+<div class="row g-5 mt-4 mb-5">
     <div class="col-md-8">
       <h3 class="pb-1 pt-4 mb-2 fst-italic">
         {{ post.title }}
@@ -66,10 +66,30 @@
     
 <div class="container">
 <h1>Comments</h1>
-    <div class="row">
-      <div class="col-md-2">Image here</div>
-      <div class="col-md-10">Comment here</div>
+  <form action="/blog/postComment" method="post">
+    {% csrf_token %}
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Post Your Comment Here</label>
+    <input type="text" name="comment" id="comment" class="form-control">
+  </div>
+  <button type="submit"  name="submit" id="submit" class="btn btn-primary">Submit</button>
+
+  <input type="hidden" name="postSno" value="{{post.sno}}">
+</form>
+
+  {% for comment in comments %}
+
+    <div class="row my-3">
+      <div class="col-md-1">
+        <img class="rounded mx-auto d-block w-100 p-2" src="/static/images/user.png" alt="My image">
+      </div>
+      <div class="col-md-11"> 
+      <b> {{ comment.user.username }} </b> at {{ comment.timestamp}} <br>
+      {{ comment.comment}}  </div>
     </div>
+
+    {% endfor %}
 </div>
 
  </div>
