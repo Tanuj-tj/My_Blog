@@ -4,43 +4,46 @@
 
 {% block body %}
 
+{% load humanize %}
+
 <div class="container">
-<div class="row g-5 mt-4 mb-5">
+  <div class="row g-5 mt-4 mb-5">
     <div class="col-md-8">
       <h3 class="pb-1 pt-4 mb-2 fst-italic">
         {{ post.title }}
       </h3>
       <p class="blog-post-meta">Published on {{ post.timeStamp }} by <a href="#">{{ post.author }}</a></p>
 
-     
+
       <br>
       <hr />
       <img src="/media/{{ post.thumbnail }}" class="img-fluid pb-5" alt="Image">
-     
+
 
       <article class="blog-post">
-         
+
         <!-- Heading 1 -->
         <h2 class="blog-post-title">{{ post.heading }}</h2>
-        
+
         <!-- Content for heading 1 -->
         <p>{{ post.content }}</p>
-        
-        {% comment %} <!-- Heading 2 -->
+
+        {% comment %}
+        <!-- Heading 2 -->
         <h2 class="blog-post-title">{{ post.head1 }}</h2>
-    
+
         <!-- Content for heading 2 -->
         <p>{{ post.chead1 }}</p>
-        
-         <!-- Heading 3 -->
-         <h2 class="blog-post-title">{{ post.head2 }}</h2>
-          
-         <!-- Content for heading 3 -->
+
+        <!-- Heading 3 -->
+        <h2 class="blog-post-title">{{ post.head2 }}</h2>
+
+        <!-- Content for heading 3 -->
         <p>{{ post.chead2 }}</p> {% endcomment %}
-        
+
       </article>
-     
-        
+
+
 
     </div>
 
@@ -48,7 +51,8 @@
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
           <h4 class="fst-italic">About</h4>
-          <p class="mb-0">My Awesome Blog in a Blogging Plateform where you can find Blogs related to various topics such as Programming, Machine Learning , Data Science and many more .</p>
+          <p class="mb-0">My Awesome Blog in a Blogging Plateform where you can find Blogs related to various topics
+            such as Programming, Machine Learning , Data Science and many more .</p>
         </div>
 
         <div class="p-4">
@@ -61,47 +65,78 @@
         </div>
       </div>
     </div>
-   
-   
-    
-<div class="container">
-<h1>Comments</h1>
-  <form action="/blog/postComment" method="post">
-    {% csrf_token %}
-  
- {% if user.is_authenticated %}
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Post Your Comment Here</label>
-    <input type="text" name="comment" id="comment" class="form-control">
-  </div>
-  <button type="submit"  name="submit" id="submit" class="btn btn-primary">Submit</button>
 
-  <input type="hidden" name="postSno" value="{{post.sno}}">
-</form>
 
-{% else %}
-<p>Please login to post a comment</p>
 
-{% endif %}
+    <div class="container">
+      <h3>Comments ({{ comments.count}}) </h3>
+      <form action="/blog/postComment" method="post">
+        {% csrf_token %}
 
-  {% for comment in comments %}
+        {% if user.is_authenticated %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Post Your Comment Here</label>
+          <input type="text" name="comment" id="comment" class="form-control">
+        </div>
+        <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
 
-    <div class="row my-3">
-      <div class="col-md-1">
-        <img class="rounded mx-auto d-block w-100 p-2" src="/static/images/user.png" alt="My image">
+        <input type="hidden" name="postSno" value="{{post.sno}}">
+         <input type="hidden" name="parentSno" value=""> 
+      </form>
+
+      {% else %}
+      <p>Please login to post a comment</p>
+
+      {% endif %}
+
+      {% for comment in comments %}
+
+      <div class="row my-3">
+        <div class="col-md-1">
+          <img class="rounded mx-auto d-block w-100 p-2" src="/static/images/user.png" alt="My image">
+        </div>
+        <div class="col-md-11">
+          <b> {{ comment.user.username }} </b><span class="badge bg-secondary m-2">{{ comment.timestamp |naturaltime}}</span>
+          <br>
+          <div> {{ comment.comment}} </div>
+          
+          <div class="reply mx-0">
+          
+            <button class="btn btn-sm btn-primary mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#replyBox{{ comment.sno }}" aria-expanded="false" aria-controls="replyBox{{ comment.sno }}">
+              Reply
+            </button>
+        
+          <div class="collapse" id="replyBox{{ comment.sno }}">
+            <div class="card card-body my-2">
+               
+               <form action="/blog/postComment" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Post Your Reply</label>
+                    <input type="text" name="comment" class="form-control">
+                     <input type="hidden" name="parentSno" value="{{ comment.sno }}">      
+                </div>
+                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+
+                <input type="hidden" name="postSno" value="{{post.sno}}">
+              </form>
+
+              
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+     
+
       </div>
-      <div class="col-md-11"> 
-      <b> {{ comment.user.username }} </b> at {{ comment.timestamp}} <br>
-      {{ comment.comment}}  </div>
+
+      {% endfor %}
     </div>
 
-    {% endfor %}
-</div>
-
- </div>
+  </div>
 </div>
 
 
 {% endblock body %}
-
-

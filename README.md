@@ -39,3 +39,8 @@
 #### 05/06/2021
 * Handling BogComments 
 * Handling Ananomous User comments by user.is_authenticated
+
+#### 06/06/2021
+* Added `naturaltime` to know the duration of comment added .
+* Addes Badges to the timestamp of comments .
+* Adding Replys to every comment .
