@@ -103,11 +103,10 @@
           <div> {{ comment.comment}} </div>
           
           <div class="reply mx-0">
-          
+          {% if user.is_authenticated %}
             <button class="btn btn-sm btn-primary mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#replyBox{{ comment.sno }}" aria-expanded="false" aria-controls="replyBox{{ comment.sno }}">
               Reply
             </button>
-        
           <div class="collapse" id="replyBox{{ comment.sno }}">
             <div class="card card-body my-2">
                
@@ -121,14 +120,21 @@
                 <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
 
                 <input type="hidden" name="postSno" value="{{post.sno}}">
-              </form>
-
-              
+              </form>   
             </div>
           </div>
+
+          {% else %}
+            <button class="btn btn-sm btn-primary mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#replyBox{{ comment.sno }}" aria-expanded="false" aria-controls="replyBox{{ comment.sno }}" disabled>
+              Reply
+            </button>
+
+          {% endif %}
+
+
          <div class="replies bg-danger my-2">
               {% for reply in replyDict|get_val:comment.sno %}
-                    {{reply}}
+                    {{reply.comment}}
                     <br>
               {% endfor %}
          </div>
