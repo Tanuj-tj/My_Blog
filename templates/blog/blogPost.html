@@ -6,6 +6,8 @@
 
 {% load humanize %}
 
+{% load extras %}
+
 <div class="container">
   <div class="row g-5 mt-4 mb-5">
     <div class="col-md-8">
@@ -124,7 +126,12 @@
               
             </div>
           </div>
-
+         <div class="replies bg-danger my-2">
+              {% for reply in replyDict|get_val:comment.sno %}
+                    {{reply}}
+                    <br>
+              {% endfor %}
+         </div>
         </div>
 
         </div>

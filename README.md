@@ -44,3 +44,13 @@
 * Added `naturaltime` to know the duration of comment added .
 * Addes Badges to the timestamp of comments .
 * Adding Replys to every comment .
+
+#### 07/06/2021
+* Created a custorm filter
+   -> blog
+    ____|-> templatetags
+    _______________|-> __init__.py
+    _______________|-> extras.py
+
+* Inorder to access values of dictionary inside blogPost.html
+
