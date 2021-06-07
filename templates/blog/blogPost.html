@@ -14,7 +14,11 @@
       <h3 class="pb-1 pt-4 mb-2 fst-italic">
         {{ post.title }}
       </h3>
-      <p class="blog-post-meta">Published on {{ post.timeStamp }} by <a href="#">{{ post.author }}</a></p>
+      <p class="blog-post-meta">Published on {{ post.timeStamp }} by <a href="#">{{ post.author }}</a>
+         
+         {% comment %} <span> <img class="rounded mx-auto d-block w-75 p-2" src="/static/images/views.png" alt="My image"> </span> {% endcomment %}
+            ({{ post.views }} Views)
+      </p>
 
 
       <br>
@@ -25,23 +29,10 @@
       <article class="blog-post">
 
         <!-- Heading 1 -->
-        <h2 class="blog-post-title">{{ post.heading }}</h2>
+        {% comment %} <h2 class="blog-post-title">{{ post.heading }}</h2> {% endcomment %}
 
         <!-- Content for heading 1 -->
-        <p>{{ post.content }}</p>
-
-        {% comment %}
-        <!-- Heading 2 -->
-        <h2 class="blog-post-title">{{ post.head1 }}</h2>
-
-        <!-- Content for heading 2 -->
-        <p>{{ post.chead1 }}</p>
-
-        <!-- Heading 3 -->
-        <h2 class="blog-post-title">{{ post.head2 }}</h2>
-
-        <!-- Content for heading 3 -->
-        <p>{{ post.chead2 }}</p> {% endcomment %}
+        <p>{{ post.content|safe }}</p>
 
       </article>
 
@@ -132,10 +123,19 @@
           {% endif %}
 
 
-         <div class="replies bg-danger my-2">
+         <div class="replies my-2">
               {% for reply in replyDict|get_val:comment.sno %}
-                    {{reply.comment}}
+              <div class="row my-2">
+                <div class="col-md-1">
+                    <img class="rounded mx-auto d-block w-75 p-2" src="/static/images/user.png" alt="My image">
+                </div>
+                <div class="col-md-11">
+                  <b> {{ reply.user.username }} </b><span class="badge bg-secondary m-2">{{ reply.timestamp |naturaltime}}</span>
+                <br>
+                <div> {{ reply.comment}} </div>
+                </div>
                     <br>
+              </div>
               {% endfor %}
          </div>
         </div>

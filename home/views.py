@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Contact
+from home.models import Contact
 # Inorder to use the alert messages for from validation
 from django.contrib import messages
 from django.contrib.auth import authenticate , login,logout
@@ -7,7 +7,12 @@ from django.contrib.auth.models import User
 from blog.models import Post
 
 def home(request):
-    return render(request,'home/home.html')
+    posts = Post.objects.order_by("views")[::-1]
+    posts = posts[:2]
+    context = {
+        "posts" : posts
+    }
+    return render(request,'home/home.html',context)
 
 def about(request):
     messages.success(request, 'This is about page')

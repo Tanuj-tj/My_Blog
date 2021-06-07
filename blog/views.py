@@ -6,13 +6,16 @@ from blog.templatetags import extras
 def blogHome(request):
     allPosts = Post.objects.all()
     context = {
-        'allPosts' : allPosts
+        'allPosts' : allPosts,
     }
     return render(request,'blog/blogHome.html', context)
 
 
 def blogPost(request,slug):
     post = Post.objects.filter(slug=slug).first()
+    post.views = post.views + 1
+    post.save()
+
     comments = BlogComment.objects.filter(post=post, parent=None)
     replies = BlogComment.objects.filter(post=post).exclude(parent=None)  # .exclude means not equal to something
     replyDict = {}
@@ -22,7 +25,6 @@ def blogPost(request,slug):
         else:
             replyDict[reply.parent.sno].append(reply)
 
-    print(replyDict)
     context = {
         'post' : post,
         'comments':comments,

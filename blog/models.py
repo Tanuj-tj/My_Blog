@@ -9,9 +9,9 @@ class Post(models.Model):
     author = models.CharField(max_length=100)
     category = models.CharField(max_length=20,default="")
     title = models.CharField(max_length=100)
-    heading = models.CharField(max_length=100)
     content = models.TextField()
     slug = models.CharField(max_length=130)
+    views = models.IntegerField(default=0)
     timeStamp = models.DateField(blank=True)
     thumbnail = models.ImageField(upload_to='blog/images',default="")
 

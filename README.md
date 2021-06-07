@@ -47,10 +47,9 @@
 
 #### 07/06/2021
 * Created a custorm filter
-   -> blog
-    ____|-> templatetags
-    _______________|-> __init__.py
-    _______________|-> extras.py
+   -> blog -> templatetags -> __init__.py | extras.py
 
 * Inorder to access values of dictionary inside blogPost.html
+* Adding safe in content inorder to render html tags from DB
+* Integrating TinyMCE rich text editor (Generates HTMl behind)
 
