@@ -49,7 +49,7 @@
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
           <h4 class="fst-italic">About</h4>
-          <p class="mb-0">My Awesome Blog is a Blogging Plateform where you can find Blogs related to various topics
+          <p class="mb-0">Techie Comet is a Blogging Plateform where you can find Blogs related to various topics
             such as Programming, Machine Learning , Data Science and many more .</p>
         </div>
 
@@ -83,7 +83,11 @@
       </form>
 
       {% else %}
-      <p>Please login to post a comment</p>
+      <p>Please 
+       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+          Login
+        </button>
+       to post a comment</p>
 
       {% endif %}
 
@@ -129,7 +133,6 @@
 
           {% endif %}
 
-
          <div class="replies my-2">
               {% for reply in replyDict|get_val:comment.sno %}
               <div class="row my-2">
@@ -161,5 +164,5 @@
   </div>
 </div>
 
-
+{% include "footer.html" %}
 {% endblock body %}
