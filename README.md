@@ -1,5 +1,7 @@
 # My_Blog
 
+![Capture](https://user-images.githubusercontent.com/63875409/121201530-3979dc00-c892-11eb-8a83-bdb69167625a.PNG)
+
 ### Frontend
 * HTML
 * CSS
