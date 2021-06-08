@@ -53,3 +53,6 @@
 * Adding safe in content inorder to render html tags from DB
 * Integrating TinyMCE rich text editor (Generates HTMl behind)
 
+#### 08/06/2021
+* Adding Icones from : https://iconmonstr.com/
+

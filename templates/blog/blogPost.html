@@ -11,14 +11,23 @@
 <div class="container">
   <div class="row g-5 mt-4 mb-5">
     <div class="col-md-8">
-      <h3 class="pb-1 pt-4 mb-2 fst-italic">
+     <span class="badge bg-primary">{{ post.category }}</span>
+      <h3 class="pb-1 pt-2 mb-2 fst-italic">
         {{ post.title }}
       </h3>
+
+    <div class="row g-5">
+    <div class="col-md-6">
       <p class="blog-post-meta">Published on {{ post.timeStamp }} by <a href="#">{{ post.author }}</a>
-         
-         {% comment %} <span> <img class="rounded mx-auto d-block w-75 p-2" src="/static/images/views.png" alt="My image"> </span> {% endcomment %}
-            ({{ post.views }} Views)
+      </div>
+
+      <div class="col-md-6">
+         <span><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12.01 20c-5.065 0-9.586-4.211-12.01-8.424 2.418-4.103 6.943-7.576 12.01-7.576 5.135 0 9.635 3.453 11.999 7.564-2.241 4.43-6.726 8.436-11.999 8.436zm-10.842-8.416c.843 1.331 5.018 7.416 10.842 7.416 6.305 0 10.112-6.103 10.851-7.405-.772-1.198-4.606-6.595-10.851-6.595-6.116 0-10.025 5.355-10.842 6.584zm10.832-4.584c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 1c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4z"/></svg>
+         </span>
+            {{ post.views }} 
       </p>
+     </div>
+      </div>
 
 
       <br>
@@ -27,11 +36,7 @@
 
 
       <article class="blog-post">
-
-        <!-- Heading 1 -->
-        {% comment %} <h2 class="blog-post-title">{{ post.heading }}</h2> {% endcomment %}
-
-        <!-- Content for heading 1 -->
+        <!-- Content -->
         <p>{{ post.content|safe }}</p>
 
       </article>
@@ -44,16 +49,16 @@
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
           <h4 class="fst-italic">About</h4>
-          <p class="mb-0">My Awesome Blog in a Blogging Plateform where you can find Blogs related to various topics
+          <p class="mb-0">My Awesome Blog is a Blogging Plateform where you can find Blogs related to various topics
             such as Programming, Machine Learning , Data Science and many more .</p>
         </div>
 
         <div class="p-4">
-          <h4 class="fst-italic">Contact Us on: </h4>
+          <h4 class="fst-italic">Contact Me on: </h4>
           <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
+            <li><a href="https://github.com/Tanuj-tj">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/tanuj-shrivastava-a59493137/">linkdin</a></li>
+            <li><a href="https://twitter.com/tanujtj75">Twitter</a></li>
           </ol>
         </div>
       </div>
@@ -86,7 +91,9 @@
 
       <div class="row my-3">
         <div class="col-md-1">
-          <img class="rounded mx-auto d-block w-100 p-2" src="/static/images/user.png" alt="My image">
+          {% comment %} <img class="rounded mx-auto d-block w-100 p-2" src="/static/images/user.png" alt="My image"> {% endcomment %}
+          <svg  class="mx-3" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-3.123 0-5.914-1.441-7.749-3.69.259-.588.783-.995 1.867-1.246 2.244-.518 4.459-.981 3.393-2.945-3.155-5.82-.899-9.119 2.489-9.119 3.322 0 5.634 3.177 2.489 9.119-1.035 1.952 1.1 2.416 3.393 2.945 1.082.25 1.61.655 1.871 1.241-1.836 2.253-4.628 3.695-7.753 3.695z"/></svg>
+       
         </div>
         <div class="col-md-11">
           <b> {{ comment.user.username }} </b><span class="badge bg-secondary m-2">{{ comment.timestamp |naturaltime}}</span>
@@ -126,8 +133,11 @@
          <div class="replies my-2">
               {% for reply in replyDict|get_val:comment.sno %}
               <div class="row my-2">
-                <div class="col-md-1">
-                    <img class="rounded mx-auto d-block w-75 p-2" src="/static/images/user.png" alt="My image">
+                <div class="col-md-1 px-4">
+                    {% comment %} <img class="rounded mx-auto d-block w-75 p-2" src="/static/images/user.png" alt="My image"> {% endcomment %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-3.123 0-5.914-1.441-7.749-3.69.259-.588.783-.995 1.867-1.246 2.244-.518 4.459-.981 3.393-2.945-3.155-5.82-.899-9.119 2.489-9.119 3.322 0 5.634 3.177 2.489 9.119-1.035 1.952 1.1 2.416 3.393 2.945 1.082.25 1.61.655 1.871 1.241-1.836 2.253-4.628 3.695-7.753 3.695z"/></svg>
+
+
                 </div>
                 <div class="col-md-11">
                   <b> {{ reply.user.username }} </b><span class="badge bg-secondary m-2">{{ reply.timestamp |naturaltime}}</span>

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% include 'footer.html' %}
+
 {% block title %} Blog {% endblock title %}
 
 {% block blogactive %} active {% endblock blogactive %}
@@ -55,6 +57,10 @@
     </div>
   </div>
 </section>
+
+
+{% block footer %}
+{% endblock %}
 
 
 {% endblock body %}

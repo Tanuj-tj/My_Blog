@@ -42,11 +42,13 @@ def search(request):
     if len(query)>100:
         allPosts = Post.objects.none()
     else:
+        allPostsCategory = Post.objects.filter(category__icontains=query)
         allPostsTitle = Post.objects.filter(title__icontains=query)
         allPostsContent = Post.objects.filter(content__icontains=query)
 
         # Merge two query sets with help of union
-        allPosts = allPostsTitle.union(allPostsContent)
+        #allPosts = allPostsTitle.union(allPostsContent)
+        allPosts = allPostsTitle | allPostsContent | allPostsCategory
 
     if allPosts.count() == 0:
         messages.warning(request, 'No search result found please refine your query')
