@@ -1,6 +1,6 @@
 # My_Blog
 
-![Capture](https://user-images.githubusercontent.com/63875409/121201530-3979dc00-c892-11eb-8a83-bdb69167625a.PNG)
+![Capture](https://user-images.githubusercontent.com/63875409/121202043-9c6b7300-c892-11eb-848b-34a2d3fb24b5.PNG)
 
 ### Frontend
 * HTML
