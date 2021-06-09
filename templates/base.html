@@ -11,21 +11,22 @@
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
   <!-- Title -->
-  <title> MyBlog | {% block title %} {% endblock title %}</title>
+  <title> TechieComet | {% block title %} {% endblock title %}</title>
 
   <style>
-    {
-      % block style %
+    {% block style %} {% endblock style %}
+  </style>
+  <style>
+    .alert1 {
+      position: relative;
+      padding: 1rem 1rem;
+      border: 1px solid transparent;
+      border-radius: .25rem;
     }
-
-      {
-      % endblock style %
-    }
-
     .bg-dark {
         background-color: #343a40!important;
     }
-  </style>
+    </style>
 
 </head>
 
@@ -34,12 +35,12 @@
   <!-- NavBar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand mt-1" href="/">
       {% comment %} <img src="/static/images/logo.jpg" alt="" width="44" height="40" class="d-inline-block align-text-top rounded-circle me-1">
       MyBlog {% endcomment %}
 
       <img src="/static/images/logo.jpg" alt="" width="35" height="35" class="d-inline-block align-text-top mr-2 me-2 rounded-circle">
-      Techie Comet
+      TechieComet
     </a>
  
 
@@ -102,11 +103,12 @@
 
   <!-- Alert -->
   {% for message in messages %}
-  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <div class="alert1 alert-{{ message.tags }} alert-dismissible fade show" role="alert1">
     <strong>Message : </strong>{{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="alert1" aria-label="Close"></button>
   </div>
-  {% endfor %}
+  {% endfor %} 
+
 
   <!-- SignUp Modal -->
   <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
@@ -208,6 +210,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
+
+
+   <script>
+  
+   </script>
 
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--

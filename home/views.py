@@ -30,7 +30,7 @@ def contact(request):
         else:
             contact = Contact(name=name,email=email,message=message)
             contact.save()
-            messages.success(request, ": Your message has been successfully send")
+            messages.success(request, "Your message has been successfully send")
 
     return render(request,'home/contact.html')
 
@@ -116,7 +116,7 @@ def handleLogin(request):
 
         if user is not None:
             login(request,user)
-            messages.success(request,"Successfully Logged In")
+            messages.success(request,"Successfully Logged in as "+str(loginusername))
             return redirect('home')
 
         else:
