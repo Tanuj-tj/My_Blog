@@ -1,60 +1,23 @@
-# My_Blog
+# TechieComet
 
-![Capture](https://user-images.githubusercontent.com/63875409/121202043-9c6b7300-c892-11eb-848b-34a2d3fb24b5.PNG)
+![Capture](https://user-images.githubusercontent.com/63875409/121424357-df127580-c98e-11eb-899e-c1076ba119cb.PNG)
+
+
+![Capture](https://user-images.githubusercontent.com/63875409/121424536-108b4100-c98f-11eb-9362-c4995f889b79.PNG)
+
+![screenshot (2)](https://user-images.githubusercontent.com/63875409/121425207-c8205300-c98f-11eb-972f-ce66f7c03d42.png)
+
+![Capture](https://user-images.githubusercontent.com/63875409/121425351-ee45f300-c98f-11eb-80dd-7cda4f32a78b.PNG)
 
 ### Frontend
 * HTML
 * CSS
 * Bootstrap
+* Tailwind css
 
 ### Backend
 * Django
-* MongoDB
+* MySQL
 
-### Daily Progress
 
-#### 30/05/2021
-* Integrating MySQL with Django
-* Creating Contact Form 
-* Integrating Django Message Framework
-* Using bootstrap displaceable messages
-
-#### 31/05/2021
-* Created BlogPost Page
-* Working on search on navbar
-* Using Django __icontains
-
-#### 02/06/2021
-* Added the functionality of no search found
-* Added Login and SignUp forms
-
-#### 03/06/2021
-* Used django inbuit User model (from django.contrib.auth.models import User)
-* Created a signup handler in views.py
-* Used django built in authontication (from django.contrib.auth import authenticate , login,logout)
-
-#### 04/06/2021
-* Login and Logout functionalites
-* Change Admin panel's header , index , index_title
-* Created a BlogComment model
-
-#### 05/06/2021
-* Handling BogComments 
-* Handling Ananomous User comments by user.is_authenticated
-
-#### 06/06/2021
-* Added `naturaltime` to know the duration of comment added .
-* Addes Badges to the timestamp of comments .
-* Adding Replys to every comment .
-
-#### 07/06/2021
-* Created a custorm filter
-   -> blog -> templatetags -> __init__.py | extras.py
-
-* Inorder to access values of dictionary inside blogPost.html
-* Adding safe in content inorder to render html tags from DB
-* Integrating TinyMCE rich text editor (Generates HTMl behind)
-
-#### 08/06/2021
-* Adding Icones from : https://iconmonstr.com/
 
