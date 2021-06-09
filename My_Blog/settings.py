@@ -104,6 +104,7 @@ DATABASES = {
 '''
 
 # MySQL
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
