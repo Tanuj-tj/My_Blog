@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse,redirect
 from blog.models import Post, BlogComment
 from django.contrib import messages
 from blog.templatetags import extras
+from .forms import PostEditForm
 
 def blogHome(request):
     allPosts = Post.objects.all()
@@ -55,5 +56,31 @@ def postComment(request):
 
 
 def blogEdit(request,slug):
-    return render(request,'blog/blogEdit.html')
+    post = Post.objects.filter(slug=slug).first()
+    form = PostEditForm(instance=post)
+
+    if request.method == 'POST':
+        form = PostEditForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect(f"/blog/{post.slug}")
+
+    context = {
+        'form': form
+        }
+    return render(request,'blog/blogEdit.html',context)
+
+
+# def editProject(request, pk):
+#     project = Project.objects.get(id=pk)
+#     form = ProjectForm(instance=project)
+
+#     if request.method == 'POST':
+#         form = ProjectForm(request.POST, request.FILES, instance=project)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+
+#     context = {'form': form}
+#     return render(request, 'base/project_form.html', context)
 

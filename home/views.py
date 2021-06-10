@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.http import HttpResponseRedirect
 from home.models import Contact
 # Inorder to use the alert messages for from validation
 from django.contrib import messages
@@ -78,17 +79,20 @@ def handleSignup(request):
         # Username should be under 10 characters
         if len(username) > 10:
             messages.error(request,"Username must be under 10 characters")
-            return redirect('home')
+            #return redirect('home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
         # Username should bbe alphanumeric
         if not username.isalnum():
             messages.error(request,"Username should only contain letters and numbers")
-            return redirect('home')
+            #return redirect('home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
         
         # Password and conform password should match
         if pass1 != pass2:
             messages.error(request,"Passwords do not match")
-            return redirect('home')
+            #return redirect('home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
 
         # Create the user
@@ -98,12 +102,13 @@ def handleSignup(request):
         myuser.first_name = fname
         myuser.last_name = lname
         myuser.save()
-        messages.success(request,"Your MyBlog account has been successfully created")
+        messages.success(request,"Your account has been successfully created")
 
     else:
         return HttpResponse('404 - Not Found')
 
-    return redirect('home')
+    #return redirect('home')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
 
 def handleLogin(request):
@@ -117,11 +122,14 @@ def handleLogin(request):
         if user is not None:
             login(request,user)
             messages.success(request,"Successfully Logged in as "+str(loginusername))
-            return redirect('home')
+            #return redirect('home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
+
 
         else:
             messages.error(request,"Invalid Credentials, Please Try again")
-            return redirect('home')
+            #return redirect('home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
     return HttpResponse('404 - Not Found')
 
@@ -129,6 +137,6 @@ def handleLogin(request):
 def handleLogout(request):
     logout(request)
     messages.success(request,"Successfully Logged Out")
-    return redirect('home')
-
+    #return redirect('home')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 

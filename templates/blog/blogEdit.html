@@ -4,28 +4,26 @@
 
 {% block body %}
   
-  
-  <div class="container mt-4">
-    <h1>Edit Your Blogs Here</h1>
-    <br>
-    
-     <div id="editor">
+<div class="container">
+   <br>
+    <h4>Edit Blog</h4>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {% for field in form %}
         
-    </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">{{field.label}}</label>
+            {{field}}
+        </div>
+        
+        {% endfor %}
 
+        <input class="btn btn-primary" type="submit" value="submit">
 
-
-    <script>
-
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
-
-
- </div>
+    </form>
+</div>
 
 
 {% include "footer.html" %}

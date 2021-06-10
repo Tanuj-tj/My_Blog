@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -9,7 +10,8 @@ class Post(models.Model):
     author = models.CharField(max_length=100)
     category = models.CharField(max_length=20,default="")
     title = models.CharField(max_length=100)
-    content = models.TextField()
+    #content = models.TextField()
+    content = RichTextField()
     slug = models.CharField(max_length=130)
     views = models.IntegerField(default=0)
     timeStamp = models.DateField(blank=True)
