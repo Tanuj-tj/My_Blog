@@ -11,7 +11,7 @@
 <div class="container">
   <div class="row g-5 mt-4 mb-5">
     <div class="col-md-8">
-     <span class="badge bg-primary">{{ post.category }}</span>
+     <span class="badge bg-secondary">{{ post.category }}</span>
       <h3 class="pb-1 pt-2 mb-2 fst-italic">
         {{ post.title }}
       </h3>
@@ -28,8 +28,8 @@
       </p>
      </div>
       </div>
-
-
+     
+       <div class="fb-like" data-href="http://127.0.0.1:8000/blog/{{ post.slug }}/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
       <br>
       <hr />
       <img src="/media/{{ post.thumbnail }}" class="img-fluid pb-5" alt="Image">

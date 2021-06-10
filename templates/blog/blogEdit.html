@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} BlogEdit {% endblock title %}
+
+{% block body %}
+  
+  
+  <div class="container mt-4">
+    <h1>Edit Your Blogs Here</h1>
+    <br>
+    
+     <div id="editor">
+        
+    </div>
+
+
+
+    <script>
+
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
+
+ </div>
+
+
+{% include "footer.html" %}
+{% endblock body %}

@@ -53,3 +53,7 @@ def postComment(request):
    
     return redirect(f"/blog/{post.slug}")
 
+
+def blogEdit(request,slug):
+    return render(request,'blog/blogEdit.html')
+
