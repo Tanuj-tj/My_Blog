@@ -19,5 +19,8 @@
 * Django
 * MySQL
 
+#### Database Models :
+
+![drawSQL-export-2021-06-12_23_30](https://user-images.githubusercontent.com/63875409/121785308-b4b2f900-cbd6-11eb-8bc4-13cd68aa2a4a.png)
 
 
