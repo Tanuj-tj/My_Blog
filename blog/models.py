@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 
 # Create your models here.
 
@@ -19,6 +20,11 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.author}"
+
+    def get_absolute_url(self):
+        return f"blog/{self.slug}"
+        #return reverse("blogPost", args=f'blog/{self.slug}')
+    
 
 
 class BlogComment(models.Model):

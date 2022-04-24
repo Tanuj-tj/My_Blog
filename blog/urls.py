@@ -13,7 +13,7 @@ urlpatterns = [
     # /blog/<Any string variable>
     path('<str:slug>',views.blogPost,name='blogPost'),
 
-
-     # /blog/edit
+    # /blog/edit
     path('<str:slug>/blogEdit',views.blogEdit,name='blogEdit'),
+
 ]

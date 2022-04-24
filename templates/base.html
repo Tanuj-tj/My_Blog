@@ -71,10 +71,22 @@
           <li class="nav-item">
             <a class="nav-link {% block blogactive %}{% endblock blogactive %}" href="/blog">Blog</a>
           </li>
+          
 
           <li class="nav-item">
             <a class="nav-link {% block contactactive %}{% endblock contactactive %}" href="/contact">Contact</a>
           </li>
+
+          <!-- Create New post -->
+          <li class="nav-item">
+          {% if user.is_authenticated %}
+          <a href="/newBlog"><button type="button" class="btn btn-secondary sm">New Post</button></a>  
+          {% else %}
+          <button type="button" class="btn btn-secondary sm" data-bs-toggle="modal" data-bs-target="#loginModal">
+            New Post
+          </button>
+          {% endif %}
+        </li>
 
         </ul>
         <form method="get" action="/search" class="d-flex">

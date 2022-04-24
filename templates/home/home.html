@@ -31,10 +31,10 @@
           {% comment %} <h6><span class="text-success">{{ post.category }}</span></h6> {% endcomment %}
           <h3 class="mb-0">{{ post.title }}</h3>
           <div class="mb-1 text-muted">{{ post.timeStamp }}</div>
-          <p class="mb-auto">{{ post.content|safe |truncatewords:"25"|linebreaks }}</p>
+          <p class="mb-auto">{{ post.content|safe |truncatewords:"15"|linebreaks }}</p>
           <a href="/blog/{{ post.slug }} "  class="stretched-link">Continue reading</a>
         </div>
-        <div class="col-auto d-none d-lg-block">
+         <div class="col-auto d-none d-lg-block">
           <img class="bd-placeholder-img" width="200" height="250" src="/media/{{ post.thumbnail }}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect></svg>
 
         </div>

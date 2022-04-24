@@ -17,4 +17,9 @@ urlpatterns = [
     path('login',views.handleLogin, name='handleLogin'),
      # /logout
     path('logout',views.handleLogout, name='handleLogout'),
+
+    # /newblog 
+    # path('newBlog',views.newBlog, name='newBlog'),
+
+    path('newBlog',views.AddNewPost.as_view(), name='newBlog'),
 ]

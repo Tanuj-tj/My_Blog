@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate , login,logout
 from django.contrib.auth.models import User
 from blog.models import Post
+from blog.forms import PostEditForm
+from django.views.generic import CreateView
 
 def home(request):
     posts = Post.objects.order_by("views")[::-1]
@@ -140,3 +142,22 @@ def handleLogout(request):
     #return redirect('home')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
+
+class AddNewPost(CreateView):
+    model = Post
+    template_name = "newBlog.html"
+    fields = '__all__'
+
+# def newBlog(request):
+#     post = Post
+#     form = PostEditForm(instance=post)
+
+#     # if request.method == 'POST':
+#     #     form = PostEditForm(request.POST, request.FILES, instance=post)
+#     #     form.save()
+#     #     return redirect(f"/blog/")
+
+#     context = {
+#         'form': form
+#         }
+#     return render(request, 'blog/newBlog.html', context)

@@ -81,41 +81,42 @@ WSGI_APPLICATION = 'My_Blog.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # SQLite
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-'''
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 # MongoDB
-'''
+USER_ID = "tanuj123"
+PASSWORD = "tanuj123"
+DATABASE = "tanujDB"
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'MyBlog_DB',
-        # 'CLIENT': {
-        #    'host': 'your-db-host',
-        # }
+        'NAME': 'tanujDB',
+        'CLIENT': {
+           'host': f'mongodb+srv://{USER_ID}:{PASSWORD}@cluster0.gqw3j.mongodb.net/{DATABASE}?retryWrites=true&w=majority',
+        }
     }
 }
 
-'''
 
 # MySQL
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myblog_db',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'Tanujs.12345',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'myblog_db',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'USER': 'root',
+#         'PASSWORD': 'Tanujs.12345',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

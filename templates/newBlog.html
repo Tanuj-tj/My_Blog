@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} newBlog {% endblock title %}
+
+{% block body %}
+  
+<div class="container">
+   <br>
+    <h4>Add New Blog</h4>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {% for field in form %}
+        
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">{{field.label}}</label>
+            {{field}}
+        </div>
+        
+        {% endfor %}
+
+        <input class="btn btn-primary" type="submit" value="submit">
+
+    </form>
+</div>
+
+{% include "footer.html" %}
+{% endblock body %}
